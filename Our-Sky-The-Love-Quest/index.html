@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#180d16">
+  <meta name="description" content="A cinematic, star-lit love quest made for Riham.">
+  <title>Our Sky — The Love Quest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sky-noise" aria-hidden="true"></div>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Our Sky home"><span class="brand-mark">☾</span><span>OUR SKY<small>THE LOVE QUEST</small></span></a>
+    <div class="top-actions">
+      <span id="progressLabel" class="progress-label">THE NIGHT IS WAITING</span>
+      <button id="musicChoose" class="icon-button" type="button" aria-label="Choose romantic background music" title="Choose a music file">♫+</button><button id="musicToggle" class="icon-button" type="button" aria-label="Background music is off" title="Background music starts when the page opens; if blocked, it starts with your first tap" disabled>♫</button><button id="soundToggle" class="icon-button" type="button" aria-label="Turn sound on" title="Sound effects">✧</button><input id="musicFile" type="file" accept="audio/*" hidden>
+    </div>
+  </header>
+  <main>
+    <section id="home" class="view hero-view">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> A story written in starlight</p>
+        <h1>Our <em>Sky</em></h1>
+        <p class="hero-subtitle">Twenty-five little worlds. One question<br class="desktop-only"> I have been carrying in my heart.</p>
+        <p class="dedication">For <strong>Riham</strong>, in the hour our sky began.</p>
+        <div class="date-pill"><span>✦</span> MAY 05, 2026 <i>·</i> 9:00 PM <span>✦</span></div>
+        <button id="beginButton" class="button button-primary">Step into our story <span>↗</span></button>
+        <p class="quiet-note" id="saveNote">A quiet place to wander. Your progress stays on this device.</p>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="moon-disc"><span>☾</span></div>
+        <div class="hero-star star-a">✦</div><div class="hero-star star-b">✧</div><div class="hero-star star-c">✦</div>
+        <div class="portrait-frame"><img class="riham-photo" src="images/characters/riham-placeholder.svg" alt="Replaceable portrait placeholder for Riham"><span class="portrait-label">HER PLACE IN THE SKY</span></div>
+        <div class="floating-note note-left">somewhere between<br>the stars and you</div>
+        <div class="floating-note note-right">the night<br>we began ♡</div>
+      </div>
+      <div class="scroll-mark" aria-hidden="true"><span></span> A LITTLE UNIVERSE FOR TWO</div>
+    </section>
+
+    <section id="map" class="view hidden">
+      <div class="section-head map-head">
+        <div><p class="eyebrow"><span class="eyebrow-line"></span> May 5 · 9:00 PM</p><h2>Our constellation</h2><p class="section-deck">Each star holds a small piece of the story. Follow the light at your own pace.</p></div>
+        <div class="map-counter"><b id="starCount">0</b><span>of 25<br>stars found</span></div>
+      </div>
+      <div class="chapter-strip" id="chapterStrip"></div>
+      <div class="map-layout">
+        <div class="map-panel">
+          <div class="map-sky">
+            <svg class="map-lines" viewBox="0 0 1000 170" preserveAspectRatio="none" aria-hidden="true"><path d="M35 94 C115 18 165 150 245 70 S375 115 435 52 S545 118 620 72 S765 28 820 90 S920 138 970 48"/></svg>
+            <div class="map-starfield" aria-hidden="true">✧　　·　　✦　　　 ·　　 ✧　　　　·　✦　　·　　　　✧　　·　　✦</div>
+            <div class="stars-grid" id="starsGrid"></div>
+            <div class="map-caption"><span class="caption-dot"></span> the way home is made of little things</div>
+          </div>
+          <div class="map-bottom"><span>✧</span> Complete a chapter to find its confession <span>✧</span></div>
+        </div>
+        <aside class="guide-card">
+          <button id="guideSeal" class="guide-orbit" type="button" aria-label="Tap the moon-cat to look for a secret"><img src="images/characters/moon-cat.svg" alt="Moon cat, your guide"><span class="guide-spark">✦</span></button>
+          <p class="eyebrow">YOUR LITTLE GUIDE</p><h3>Take your time,<br><em>Riham.</em></h3>
+          <p>Some stars ask you to remember. Others ask you to trust your heart. A hint is always close.</p>
+          <div class="guide-stats"><div><b id="hintCount">0</b><small>hints used</small></div><div><b id="chapterCount">0</b><small>chapters open</small></div></div>
+          <button id="secretButton" class="secret-link hidden" type="button">Enter the Moon Room <span>✧</span></button>
+          <button id="openGallery" class="button button-quiet gallery-open" type="button">Keepsake gallery <span>✦</span></button>
+          <button id="restartButton" class="text-button" type="button">Begin again <span>↻</span></button>
+          <p class="guide-whisper" id="guideWhisper">There may be a secret in the quiet between stars.</p>
+        </aside>
+      </div>
+      <div class="map-foot"><img class="elmahdi-photo" src="images/characters/el-mahdi-placeholder.svg" alt="Replaceable portrait placeholder for El Mahdi"><span>A note from El Mahdi <b>“I made this little sky for you.”</b></span></div>
+    </section>
+
+    <section id="game" class="view hidden game-view">
+      <button id="backButton" class="back-button" type="button">← <span>Back to the constellation</span></button>
+      <div class="game-heading">
+        <div><p class="eyebrow" id="gameEyebrow">CHAPTER 01 · FIRST LIGHT</p><h2 id="gameTitle">The first star</h2></div>
+        <div class="token-chip"><span>STAR TOKEN</span><b id="tokenText">✦ not yet found</b></div>
+      </div>
+      <p id="gameIntro" class="game-intro"></p>
+      <div id="gameArea" class="game-area"></div>
+      <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+      <div class="game-controls">
+        <button id="hintButton" class="button button-quiet" type="button">A little hint <span>♡</span></button>
+        <button id="skipButton" class="button button-quiet skip-button hidden" type="button">Skip this star, gently <span>→</span></button><span id="gameNote">No rush. The night is ours.</span>
+      </div>
+      <div id="hintBox" class="hint-box hidden" role="note"></div>
+      <section id="confession" class="confession-card hidden">
+        <div class="confession-seal">♡</div><div class="confession-pair" aria-label="Replaceable portraits for Riham and El Mahdi"><img class="riham-photo" src="images/characters/riham-placeholder.svg" alt="Replaceable portrait of Riham"><span aria-hidden="true">♡</span><img class="elmahdi-photo" src="images/characters/el-mahdi-placeholder.svg" alt="Replaceable portrait of El Mahdi"></div><p class="eyebrow">A little truth, just for you</p><figure id="memoryPhoto" class="memory-photo hidden"><img id="memoryPhotoImg" alt=""><figcaption id="memoryPhotoCap"></figcaption></figure>
+        <h3 id="confessionTitle"></h3><p id="confessionText"></p><div class="confession-sign">— from my heart to yours</div>
+        <section id="roundGift" class="round-gift hidden" aria-live="polite" aria-label="Chapter completion gift">
+          <p class="eyebrow">A GIFT FOR FINISHING THIS ROUND</p>
+          <img id="roundGiftImage" class="round-gift-image" src="images/gifts/first-light-rose.svg" alt="A romantic illustrated gift">
+          <h4 id="roundGiftTitle"></h4><p id="roundGiftText"></p>
+        </section>
+        <button id="continueButton" class="button button-primary" type="button">Return to our sky <span>↗</span></button>
+      </section>
+    </section>
+
+    <section id="secretRoom" class="view hidden secret-view">
+      <button id="secretBack" class="back-button" type="button">← <span>Back to the constellation</span></button>
+      <div class="secret-moon">☾</div><p class="eyebrow">A ROOM BETWEEN THE STARS</p><h2>The Moon Room</h2>
+      <p class="section-deck">You found the place where the unspoken things have been kept.</p>
+      <div id="secretArea" class="game-area secret-game"></div><div id="secretFeedback" class="feedback" role="status"></div>
+      <section id="secretConfession" class="confession-card hidden"><div class="confession-seal">✧</div><div class="confession-pair" aria-label="Replaceable portraits for Riham and El Mahdi"><img class="riham-photo" src="images/characters/riham-placeholder.svg" alt="Replaceable portrait of Riham"><span aria-hidden="true">♡</span><img class="elmahdi-photo" src="images/characters/el-mahdi-placeholder.svg" alt="Replaceable portrait of El Mahdi"></div><p class="eyebrow">A secret, kept only for you</p><h3>Even the quiet parts are yours.</h3><p>When the world gets loud, I hope you remember there is a little place in this sky where you are always welcome. No puzzle, no performance. Just you, exactly as you are.</p><button id="secretDoneButton" class="button button-primary">Keep this little star <span>♡</span></button></section>
+    </section>
+
+    <section id="ending" class="view hidden ending-view">
+      <div class="ending-glow">✦　✧　✦</div><p class="eyebrow">EVERY STAR LED BACK TO YOU</p><h2 id="endingTitle">What shall we make<br><em>of our sky?</em></h2>
+      <p class="ending-lead" id="endingLead">The last page is ours to write. Choose the promise that feels like us.</p>
+      <div id="endingChoices" class="ending-choices">
+        <button class="ending-choice" data-ending="tender"><span class="choice-icon">♡</span><b>A gentle forever</b><small>Choose the quiet, steady kind of love.</small><span class="choice-arrow">↗</span></button>
+        <button class="ending-choice" data-ending="adventure"><span class="choice-icon">✦</span><b>A thousand tomorrows</b><small>Choose the brave road, side by side.</small><span class="choice-arrow">↗</span></button>
+        <button class="ending-choice" data-ending="open"><span class="choice-icon">☾</span><b>Keep choosing us</b><small>Choose a promise with room to grow.</small><span class="choice-arrow">↗</span></button>
+      </div>
+      <article id="endingLetter" class="ending-letter hidden"><div class="letter-seal">♡</div><figure class="letter-photo-4x6" aria-label="A romantic four-by-six portrait frame with replaceable pictures of Riham and El Mahdi"><div class="letter-photo-heading">✦ &nbsp; OUR SKY &nbsp; ✦<small>MAY 05 · 2026</small></div><div class="letter-photo-pair"><img class="riham-photo" src="images/characters/riham-placeholder.svg" alt="Replaceable picture of Riham"><span class="letter-photo-heart" aria-hidden="true">♡</span><img class="elmahdi-photo" src="images/characters/el-mahdi-placeholder.svg" alt="Replaceable picture of El Mahdi"></div><figcaption>Two hearts, one little universe<small>9:00 PM · A NIGHT TO REMEMBER</small></figcaption></figure><p class="letter-greeting">My dearest Riham,</p><p id="endingMessage"></p><p class="letter-question" id="endingQuestion"></p><p class="letter-ps hidden" id="endingPS"></p><p class="letter-signature">Forever yours,<br><b>El Mahdi</b></p></article>
+      <div class="ending-actions hidden" id="endingActions"><button id="endingMap" class="button button-quiet">Visit our constellation</button><button id="endingGallery" class="button button-quiet">Open keepsakes ✦</button><button id="chooseAgain" class="text-button">Choose another ending ↻</button></div>
+    </section>
+
+    <section id="gallery" class="view hidden gallery-view">
+      <button id="galleryBack" class="back-button" type="button">← <span>Back to the constellation</span></button>
+      <header class="gallery-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span> LITTLE THINGS WE FOUND</p><h2>Our keepsakes</h2><p class="section-deck">Every star leaves a memory. Tap one to hold it close again.</p></div></header>
+      <section class="personalize-panel" aria-labelledby="personalizeTitle">
+        <div><p class="eyebrow">MAKE THIS SKY YOURS</p><h3 id="personalizeTitle">A few personal touches</h3><p class="personalize-note" id="personalizeNote">Your pictures and choices are saved only in this browser.</p></div>
+        <div class="personalize-controls">
+          <label class="upload-choice">Riham's picture <input id="rihamPhotoFile" type="file" accept="image/*"></label>
+          <label class="upload-choice">El Mahdi's picture <input id="elMahdiPhotoFile" type="file" accept="image/*"></label>
+          <button id="resetPhotos" class="small-action" type="button">Restore portraits</button>
+          <label class="music-choice" for="musicPreset">Background music
+            <select id="musicPreset"><option value="off">Quiet sky</option><option value="moonlight">Moonlight · soft lullaby</option><option value="starlight">Starlight · gentle bells</option><option value="heartbeat">Heartbeat · slow pulse</option><option value="custom">Choose my own audio…</option></select>
+          </label>
+          <label class="volume-choice" for="musicVolume">Volume <input id="musicVolume" type="range" min="0" max="60" value="28"></label>
+        </div>
+      </section>
+      <div class="gallery-layout"><div class="gallery-grid" id="galleryGrid" aria-label="Unlocked memories"></div>
+        <article id="galleryDetail" class="gallery-detail" aria-live="polite"><div id="galleryDetailPlaceholder" class="gallery-detail-placeholder">✧<p>Choose an unlocked keepsake to revisit it.</p></div><img id="galleryDetailImage" class="hidden" alt=""><p id="galleryDetailKind" class="eyebrow"></p><h3 id="galleryDetailTitle"></h3><p id="galleryDetailText"></p></article>
+      </div>
+    </section>
+  </main>
+  <section id="cinematic" class="cinematic hidden" role="dialog" aria-modal="true" aria-labelledby="sceneTitle" aria-describedby="sceneLine">
+    <div class="cinematic-backdrop" aria-hidden="true"></div><article class="cinematic-card">
+      <div class="cinematic-topline"><span>✦ &nbsp; A MOMENT IN OUR STORY &nbsp; ✦</span><button id="sceneSkip" class="scene-skip" type="button">Skip scene ↗</button></div>
+      <h2 id="sceneTitle">First Light</h2>
+      <div class="scene-portraits"><figure class="scene-riham"><img class="riham-photo" src="images/characters/riham-placeholder.svg" alt="Riham"><figcaption>RIHAM</figcaption></figure><span class="scene-heart">♡</span><figure class="scene-elmahdi"><img class="elmahdi-photo" src="images/characters/el-mahdi-placeholder.svg" alt="El Mahdi"><figcaption>EL MAHDI</figcaption></figure></div>
+      <p id="sceneSpeaker" class="scene-speaker"></p><p id="sceneLine" class="scene-line"></p><div class="scene-progress" id="sceneProgress"></div>
+      <div class="scene-controls"><button id="scenePause" class="button button-quiet" type="button">Pause dialogue</button><button id="sceneNext" class="button button-primary" type="button" disabled>Continue <span>↗</span></button></div>
+    </article>
+  </section>
+  <footer><span>OUR SKY</span><i>✧</i> A little universe for Riham <i>✧</i> MAY 05 · 2026</footer>
+  <div id="saveToast" class="save-toast" role="status" aria-live="polite" aria-hidden="true">✦ Saved to your sky</div>
+  <audio id="backgroundMusic" loop preload="none" src="music/romantic-background.mp3"></audio><script src="personal.js"></script><script src="script.js"></script>
+</body>
+</html>
+
+
+
